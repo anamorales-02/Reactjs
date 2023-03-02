@@ -2,7 +2,7 @@
 
 //DEF:Toggle>El método toggle permite cada vez que se ejecute cambiar de estado la visibilidad del elemento HTML, es decir si está visible pasa a oculto y si se encuentra oculto pasa a visible
 import React from 'react';
-import CartWidget from '../CartWidget/CartWidget'; //devuelve un icono de carrito
+import CartWidget from './CartWidget/CartWidget'; //devuelve un icono de carrito
 
 const Navbar = () => {
   //poner en un futuro la ruta de acceso al logo de la marca

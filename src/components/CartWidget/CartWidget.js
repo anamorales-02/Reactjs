@@ -1,14 +1,13 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { BsFillCartFill } from 'react-icons/bs';
+import './styles.scss';
 
-const CartWidget = () => {
+function CartWidget() {
   return (
-    <div>
-      <FontAwesomeIcon icon={faCartShopping} size={'2rem'} color={'black'} />
-      <span>{1}</span>
-    </div>
+    <a href="#" className="cart-widget">
+      <BsFillCartFill className="icon" />
+      <span className="badge">3</span>
+    </a>
   );
-};
+}
 
 export default CartWidget;
