@@ -1,26 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Card from "../../Cards/cards";
 
-export default function ItemList({ users }) {
+const ItemList = (props) => {
   return (
-    <div className="item-list-container">
-      <ul className="item-list">
-        {users.map((user) => (
-          /* remplazar por componente <Item> */
-
-          <li className="item-card" key={user.id}>
-            <img src={user.avatar} alt={user.first_name} />
-            <h4>{`${user.first_name} ${user.last_name}`}</h4>
-            <small>{user.email}</small>
-            <br />
-
-            <Link to={`/detalle/${user.id}`}>
-              <button>Ver más</button>
-            </Link>
-          </li>
-          /* hasta aca </Item> */
-        ))}
-      </ul>
-    </div>
+    <>
+      {props.productsList.map((product) => {
+        return (
+          <Card
+            key={product.id}
+            id={product.id}
+            title={product.title}
+            img={product.image}
+            price={product.price}
+            detail={product.detail}
+          />
+        );
+      })}
+    </>
   );
-}
+};
+
+export default ItemList;

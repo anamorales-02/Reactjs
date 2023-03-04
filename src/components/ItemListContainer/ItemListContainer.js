@@ -1,27 +1,33 @@
-import "./styles.scss";
 import { useState, useEffect } from "react";
-import ItemList from "./ItemList";
+import ItemList from "./ItemList/ItemList";
+import { getProducts, getProductsByCategory } from "../../products/products";
+import { useParams } from "react-router-dom";
+import "./styles.scss";
 
-function ItemListContainer({ greeting }) {
-  const [users, setUsers] = useState([]);
+const ItemListContainer = () => {
+  const [productsList, setProductsList] = useState([]);
+  const params = useParams();
+  const categoryID = params.categoryID;
 
   useEffect(() => {
-    fetch("https://reqres.in/api/users")
-      .then((res) => {
-        return res.json();
-      })
-      .then((json) => {
-        console.log("json", json);
-        setUsers(json.data);
+    if (categoryID === undefined) {
+      getProducts().then((data) => {
+        setProductsList(data);
       });
-  }, []);
+    } else {
+      getProductsByCategory(categoryID).then((data) => {
+        setProductsList(data);
+      });
+    }
+  }, [categoryID]);
 
   return (
-    <>
-      <h2>{greeting}</h2>
-      <ItemList users={users} />
-    </>
+    <div className="container">
+      <h1>Articulos destacados:</h1>
+      <ItemList productsList={productsList} />
+      <hr />
+    </div>
   );
-}
+};
 
 export default ItemListContainer;

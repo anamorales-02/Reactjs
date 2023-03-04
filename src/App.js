@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
@@ -11,8 +11,8 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route exact path="/" element={<ItemListContainer />} />
-        <Route exact path="/categoria/:id" element={<ItemListContainer />} />
-        <Route exact path="/detalle/:id" element={<ItemDetailContainer />} />
+        <Route exact path="/category/:id" element={<ItemListContainer />} />
+        <Route exact path="/item/:id" element={<ItemDetailContainer />} />
       </Routes>
     </BrowserRouter>
   );
