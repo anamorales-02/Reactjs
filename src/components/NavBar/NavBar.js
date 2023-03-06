@@ -4,6 +4,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import CartWidget from './CartWidget/CartWidget'; //devuelve un icono de carrito
+import './NavBar.scss';
 
 const Navbar = () => {
   //poner en un futuro la ruta de acceso al logo de la marca

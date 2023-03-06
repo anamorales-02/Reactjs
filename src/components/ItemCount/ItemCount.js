@@ -5,11 +5,11 @@ const ItemCount = ({ stock, initial, text }) => {
   const [count, setCount] = useState(initial);
 
   const handleSubstract = () => {
-    if (count > 1) setCount(count - 1);
+    if (count > 1) setCount(prevCount => prevCount - 1);
   };
 
   const handleAdd = () => {
-    if (count < stock) setCount(count + 1);
+    if (count < stock) setCount(prevCount => prevCount + 1);
   };
 
   return (
