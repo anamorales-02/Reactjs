@@ -19,7 +19,7 @@ const ItemCount = ({ stock, initial, text }) => {
         <button onClick={handleSubstract}> - </button>
         <p id="counter">{count}</p>
         <button onClick={handleAdd}> + </button>
-      </div>
+      </div> <br/>
       <button>{text}</button>
     </div>
   );

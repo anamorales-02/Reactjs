@@ -4,15 +4,15 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import CartWidget from './CartWidget/CartWidget'; //devuelve un icono de carrito
-import './NavBar.scss';
 
 const Navbar = () => {
   //poner en un futuro la ruta de acceso al logo de la marca
   return (
     <header>
-    <nav>
+   <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
-      <button
+      <h1>AnBikinis</h1>
+        <button
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
@@ -23,21 +23,32 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <h1>AnBikinis</h1>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-          <li className="nav-item">
-            <Link to={"/"}>Inicio</Link>
-          </li>
-          <li className="nav-item">
-            <Link to={"/"}>Bikinis</Link>
-          </li>
-          <li className="nav-item">
-            <Link to={"/"}>Deporte</Link>
-          </li>
-          <li className="nav-item">
-            <Link to={"/"}>Accesorios</Link>
-          </li>
+            <li className="nav-item">
+              {' '}
+              <Link className="nav-link active" aria-current="page" to='/'>
+                Inicio
+              </Link>
+            </li>
+            <li className="nav-item">
+              {' '}
+              <Link className="nav-link active" aria-current="page" to='/'>
+              Bikinis
+              </Link>
+            </li>
+            <li className="nav-item">
+              {' '}
+              <Link className="nav-link active" aria-current="page" to="/category/men's clothing">
+              Men's clothing
+              </Link>
+            </li>
+            <li className="nav-item">
+              {' '}
+              <Link className="nav-link active" aria-current="page" to='/category/jewelery'>
+              Accesorios
+              </Link>
+            </li>
           </ul>
           <CartWidget />
         </div>
@@ -48,5 +59,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
 

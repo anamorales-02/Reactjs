@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+ import { useState, useEffect } from "react";
 import ItemList from "./ItemList/ItemList";
 import { getProducts, getProductsByCategory } from "../../products/products";
 import { useParams } from "react-router-dom";
@@ -6,20 +6,20 @@ import "./styles.scss";
 
 const ItemListContainer = () => {
   const [productsList, setProductsList] = useState([]);
-  const params = useParams();
-  const categoryID = params.categoryID;
+  const {id} = useParams();
+  
 
   useEffect(() => {
-    if (categoryID === undefined) {
+    if (id === undefined) {
       getProducts().then((data) => {
         setProductsList(data);
       });
     } else {
-      getProductsByCategory(categoryID).then((data) => {
+      getProductsByCategory(id).then((data) => {
         setProductsList(data);
       });
     }
-  }, [categoryID]);
+  }, [id]);
 
   return (
     <div className="container">
