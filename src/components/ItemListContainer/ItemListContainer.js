@@ -1,33 +1,38 @@
- import { useState, useEffect } from "react";
-import ItemList from "./ItemList/ItemList";
-import { getProducts, getProductsByCategory } from "../../products/products";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import ItemList from "./ItemList/ItemList";
 import "./styles.scss";
+import { getProds, getProdsByCategory } from "../../services/firebase";
+import Loader from "../Loader/Loader";
 
-const ItemListContainer = () => {
+function ItemListContainer(props) {
   const [productsList, setProductsList] = useState([]);
-  const {id} = useParams();
-  
+  const [isLoading, setIsLoading] = useState(true);
+
+  const params = useParams();
+  const categoryID = params.categoryID;
 
   useEffect(() => {
-    if (id === undefined) {
-      getProducts().then((data) => {
+    setProductsList([]);
+    if (categoryID === undefined) {
+      getProds().then((data) => {
         setProductsList(data);
+        setIsLoading(false);
       });
     } else {
-      getProductsByCategory(id).then((data) => {
+      getProdsByCategory(categoryID).then((data) => {
         setProductsList(data);
+        setIsLoading(false);
       });
     }
-  }, [id]);
+  }, [categoryID]);
 
   return (
     <div className="container">
-      <h1>Articulos destacados:</h1>
-      <ItemList productsList={productsList} />
-      <hr />
+      <h1>Productos</h1>
+      {isLoading ? <Loader /> : <ItemList productsList={productsList} />}
     </div>
   );
-};
+}
 
-export default ItemListContainer;
+export default ItemListContainer; 

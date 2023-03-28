@@ -1,9 +1,12 @@
 import React from "react";
 import Card from "../../Cards/cards";
+import FlexWrapper from "../../FlexWrapper/FlexWrapper";
+
 
 const ItemList = (props) => {
   return (
     <>
+    <FlexWrapper rows={true}>
       {props.productsList.map((product) => {
         return (
           <Card
@@ -16,6 +19,7 @@ const ItemList = (props) => {
           />
         );
       })}
+      </FlexWrapper>
     </>
   );
 };

@@ -1,0 +1,17 @@
+
+.shoppingBagLogo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .scale-effect {
+    transform: scale(1.2);
+  }
+
+  .containerCartWidget {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .containerCartWidget:hover {
+    transform: scale(1.1);
+  }

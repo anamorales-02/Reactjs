@@ -1,12 +1,8 @@
-//barra de menú (Navbar)
-
-//DEF:Toggle>El método toggle permite cada vez que se ejecute cambiar de estado la visibilidad del elemento HTML, es decir si está visible pasa a oculto y si se encuentra oculto pasa a visible
 import React from 'react';
 import { Link } from "react-router-dom";
-import CartWidget from './CartWidget/CartWidget'; //devuelve un icono de carrito
+import CartWidget from './CartWidget/CartWidget'; 
 
 const Navbar = () => {
-  //poner en un futuro la ruta de acceso al logo de la marca
   return (
     <header>
    <nav className="navbar navbar-expand-lg bg-light">
@@ -29,12 +25,6 @@ const Navbar = () => {
               {' '}
               <Link className="nav-link active" aria-current="page" to='/'>
                 Inicio
-              </Link>
-            </li>
-            <li className="nav-item">
-              {' '}
-              <Link className="nav-link active" aria-current="page" to='/'>
-              Bikinis
               </Link>
             </li>
             <li className="nav-item">

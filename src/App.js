@@ -1,21 +1,45 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { CartContextProvider } from "../src/Context/cartContext";
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import CartView from "./components/CartView/CartView";
 
-const App = () => {
+function App() {
+
   return (
-    <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route exact path="/" element={<ItemListContainer />} />
-        <Route exact path="/category/:id" element={<ItemListContainer />} />
-        <Route exact path="/item/:id" element={<ItemDetailContainer />} />
-      </Routes>
-    </BrowserRouter>
+    
+    <div>
+      <CartContextProvider>
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<ItemListContainer />} />
+
+            <Route
+              path="/category/:categoryID"
+              element={<ItemListContainer />}
+            />
+            <Route
+              path="/prod/:itemID"
+              element={<ItemDetailContainer />}
+            ></Route>
+
+            <Route path="/cart" element={<CartView />}></Route>
+
+            <Route
+              path="/thankyou/:orderid"
+              element={<h1>Gracias por tu compra</h1>}
+            ></Route>
+
+            <Route path="*" element={<h4>Lo siento, algo salio mal!: 404</h4>} />
+          </Routes>
+        </BrowserRouter>
+      </CartContextProvider>
+    </div>
   );
-};
+}
+
 
 export default App;
