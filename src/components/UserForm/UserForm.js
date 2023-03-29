@@ -37,10 +37,10 @@ export default function UserForm({ cart, getTotalPrice }) {
 
     createBuyOrder(orderData).then((respuesta) => {
       Swal.fire({
-        title: "Thanks!",
-        text: "The product will not take long to arrive at your home",
+        title: "Gracias!",
+        text: "Se enviará a tu correo electronico toda la infromación necesaria para proseguir.",
         icon: "success",
-        confirmButtonText: "Cool",
+        confirmButtonText: "OK",
       }).then((result) => {
         navigate(`/thankyou/${respuesta}`);
       });
@@ -53,7 +53,7 @@ export default function UserForm({ cart, getTotalPrice }) {
       <div className="inputContainer">
       <InputForm
         value={userData.name}
-        title="Name"
+        title="Nombre y apellido"
         name="name"
         required={true}
         onChange={onInputChange}
@@ -71,14 +71,14 @@ export default function UserForm({ cart, getTotalPrice }) {
       <div className="inputContainer">
         <InputForm
         value={userData.phone}
-        title="Phone"
+        title="Telefono"
         name="phone"
         onChange={onInputChange}
       />
       </div>
       
       
-      <button type="submit" className="orderBtn">Create Order</button>
+      <button type="submit" className="orderBtn">Completar compra</button>
     </form>
   );
 }

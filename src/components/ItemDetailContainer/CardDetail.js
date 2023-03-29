@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useContext } from "react";
 import ItemCount from "../ItemCount/ItemCount";
-import "./ItemDetailContainer.css";
 import { cartContext } from "../../Context/cartContext";
 import { Link } from "react-router-dom";
 import Loader from "../Loader/Loader";
+import "./styles.css";
 
 function CardDetail({ prod }) {
   const [count, setCount] = useState(0);
@@ -18,9 +18,9 @@ function CardDetail({ prod }) {
   if (prod.title)
     return (
       <div className="cardDetail">
-        <div className="cardDetail_img_detail">
+        <div className="cardDetail_image_detail">
         <h2>{prod.title}</h2>
-          <img src={prod.img} alt={prod.title} />
+          <img src={prod.image} alt={prod.title} />
         </div>
 
           <div>

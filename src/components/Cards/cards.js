@@ -27,7 +27,7 @@ function CardComponent(props) {
     position: "relative",
   };
 
-  const imgStyle = {
+  const imageStyle = {
     filter: isExpired ? "grayscale(100%) blur(1px)" : "none",
   };
 
@@ -37,8 +37,8 @@ function CardComponent(props) {
 
   return (
     <div onClick={handleCardClick} className="card" style={cardStyles}>
-      <div className="card-img">
-        <img style={imgStyle} src={props.img} alt={props.title}></img>
+      <div className="card-image">
+        <img style={imageStyle} src={props.image} alt={props.title}></img>
       </div>
       <div className="card-detail">
         <h2>{props.title}</h2>

@@ -6,6 +6,10 @@ import { cartContext } from "../../Context/cartContext";
 function CartView() {
   const { cart, removeItem, getTotalPrice } = useContext(cartContext);
 
+  if (cart.length === 0) {
+    return <h2>Tu carrito esta vacío! Explora nuestra tienda.</h2>;
+  }
+
   return (
     <>
       {cart.map((prod) => (
@@ -13,8 +17,10 @@ function CartView() {
           <h2>{prod.title}</h2>
           <h4>${prod.price}</h4>
           <h4>{prod.count}</h4>
-          <h4>Total Price: €{prod.price * prod.count}</h4>
-          <button  onClick={() => removeItem(prod.id)} className="DeleteBtnS">X</button>
+          <h4>Precio Total: ${prod.price * prod.count}</h4>
+          <button onClick={() => removeItem(prod.id)} className="DeleteBtnS">
+            Eliminar
+          </button>
         </div>
       ))}
 
@@ -22,6 +28,5 @@ function CartView() {
     </>
   );
 }
-
 
 export default CartView;

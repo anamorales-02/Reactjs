@@ -36,6 +36,7 @@
   width: 35%;
  }
 
+
  .DeleteBtn {
   padding: 4px 15px;
   color: white;
@@ -47,11 +48,12 @@
  }
 
  #viewCartBtn {
-        padding: 3px 15px;
+        padding: 5px 15px;
         color: white;
         max-width: 150px;
-        background-color: #8a6642;
+        background-color: #9b9b9b;
         border-radius: 5px;
         text-decoration: none;
-        font-weight: 600;
+        font-weight: bolder;
+
  }

@@ -1,13 +1,8 @@
 import React from "react";
-import { DotWave } from "@uiball/loaders";
-import FlexWrapper from "../FlexWrapper/FlexWrapper";
+import Spinner from 'react-bootstrap/Spinner';
 
-function Loader() {
-  return (
-    <FlexWrapper>
-      <DotWave size={47} speed={1} color="red" />
-    </FlexWrapper>
-  );
+function GrowExample() {
+  return <Spinner animation="grow" />;
 }
 
-export default Loader;
+export default GrowExample;
