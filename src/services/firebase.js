@@ -1,5 +1,4 @@
 import { initializeApp } from "firebase/app";
-
 import {
     getFirestore,
     collection,
@@ -12,11 +11,11 @@ import {
   } from "firebase/firestore";
 
   const firebaseConfig = {
-    apiKey: "AIzaSyDPxeefaNFHLGFhI38r2vpZUDZwRO_KCTc",
-    authDomain: "ecommerce-react-aa92b.firebaseapp.com",
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
     projectId: "ecommerce-react-aa92b",
     storageBucket: "ecommerce-react-aa92b.appspot.com",
-    messagingSenderId: "834510325013",
+    messagingSenderId: process.env.REACT_APP_MSG_ID,
     appId: "1:834510325013:web:0049e82e4d2b8a7fab951c"
   };
   
