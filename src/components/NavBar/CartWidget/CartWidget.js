@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { cartContext } from "../../../Context/cartContext";
 import CartWidgetImg from "../../../products/logo.png";
 import "./cartWidget.css"
@@ -12,16 +13,15 @@ function CartWidget() {
   };
 
   return (
-    <a
+    <Link to="/cart"
       className={`containerCartWidget ${isClicked ? "scale-effect" : ""}`}
-      href="/cart"
       onClick={handleClick}
     >
       <img src={CartWidgetImg} alt="Cart Widget" className="shoppingBagLogo" />
       <span className="itemCountSpan">
         {getTotalItemCount() > 0 && getTotalItemCount()}
       </span>
-    </a>
+    </Link> 
   );
 }
 
